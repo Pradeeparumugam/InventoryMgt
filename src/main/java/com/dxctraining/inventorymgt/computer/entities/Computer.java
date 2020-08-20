@@ -4,17 +4,17 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 import com.dxctraining.inventorymgt.item.entities.Item;
+import com.dxctraining.inventorymgt.supplier.entities.Supplier;
 
 @Entity
-@Table(name = "inventorymgt")
 public class Computer extends Item{
 	private int disksize;
 	//private int id;
 	//private String name;
 	
-	public Computer(String name,int disksize) {
+	public Computer(String name,Supplier supplier,int disksize) {
 	
-		super(name);
+		super(name,supplier);
 		this.disksize=disksize;
 		
 	}

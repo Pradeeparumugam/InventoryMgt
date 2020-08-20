@@ -14,23 +14,23 @@ import com.dxctraining.inventorymgt.computer.exceptions.NotValid;
 @Service
 public class ComputerServiceImpl {
 	@Autowired
-	private ComputerDaoImpl computerdaoimpl;
+	private ComputerDao computerdao;
 
 	public Computer addComputer(Computer computer) {
-		computer = computerdaoimpl.addComputer(computer);
+		computer = computerdao.addComputer(computer);
 		return computer;
 
 	}
 
 	public Computer findComputerById(int id) {
 		verify(id);
-		Computer computer = computerdaoimpl.findComputerById(id);
+		Computer computer = computerdao.findComputerById(id);
 		return computer;
 	}
 
 	public void removeComputer(int id) {
 		verify(id);
-		computerdaoimpl.removeComputer(id);
+		computerdao.removeComputer(id);
 	}
 
 	public void verify(int id) {

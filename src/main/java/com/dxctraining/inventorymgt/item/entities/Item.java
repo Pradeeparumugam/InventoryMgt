@@ -7,20 +7,22 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
 
+import com.dxctraining.inventorymgt.supplier.entities.Supplier;
+
 @Entity
-@Table(name = "inventorymgt")
+@Table(name = "item")
 @Inheritance (strategy= InheritanceType.JOINED)
 public class Item {
 	@Id
 	@GeneratedValue
 	private int id;
 	private String name;
-	//private Supplier supplier;
+	private Supplier supplier;
 
-	public Item( String name) {
+	public Item( String name,Supplier supplier) {
 		//this.id = id;
 		this.name = name;
-		//this.supplier = supplier;
+		this.supplier = supplier;
 	}
 	public Item() {
 		
@@ -42,13 +44,13 @@ public class Item {
 		this.name = name;
 	}
 
-//	public Supplier getSupplier() {
-//		return supplier;
-//	}
-//
-//	public void setSupplier(Supplier supplier) {
-//		this.supplier = supplier;
-//	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
 
 	@Override
 	public int hashCode() {
