@@ -9,12 +9,12 @@ import com.dxctraining.inventorymgt.supplier.entities.*;
 import com.dxctraining.inventorymgt.supplier.exception.NotValid;
 import com.dxctraining.inventorymgt.item.entities.Item;
 import com.dxctraining.inventorymgt.computer.entities.Computer;
-//import com.dxctraining.inventorymgt.computer.service.*;
 import com.dxctraining.inventorymgt.item.service.*;
 import com.dxctraining.inventorymgt.supplier.service.*;
 import com.dxctraining.inventorymgt.phone.entities.Phone;
 import com.dxctraining.inventorymgt.phone.service.*;
 import com.dxctraining.inventorymgt.computer.service.ComputerService;
+
 @Component
 public class MainUi {
 
@@ -23,7 +23,7 @@ public class MainUi {
 
 	@Autowired
 	private ItemService itemservice;
-	
+
 	@Autowired
 	private ComputerService computerservice;
 
@@ -58,7 +58,7 @@ public class MainUi {
 
 			for (int i = 1; i < 3; i++) {
 				Item item = itemservice.findItemById(i);
-				System.out.println("Item Details =" + item.getName());
+				System.out.println("Item Details =" +item.getId()+ " " +item.getName() + " " + item.getSupplier());
 			}
 
 			System.out.println("Item completed");
@@ -73,21 +73,23 @@ public class MainUi {
 				Computer computer = computerservice.findComputerById(i);
 				System.out.println("Computer Details =" + computer.getDisksize() + computer.getSupplier() + " "
 						+ computer.getName());
+
 			}
 
 			System.out.println("Computer completed");
 
 			Phone p1 = new Phone("Apple", s1, 128);
 			Phone p2 = new Phone("Oneplus", s2, 256);
-			
-			p1=phoneservice.addPhone(p1);
-			p2=phoneservice.addPhone(p2);
-			
+
+			p1 = phoneservice.addPhone(p1);
+			p2 = phoneservice.addPhone(p2);
+
 			for (int i = 1; i < 3; i++) {
 				Phone phone = phoneservice.findPhoneById(i);
-				System.out.println("Computer Details =" + phone.getName() + phone.getSupplier() + " "
-						+ phone.getStoragesize());
+				System.out.println(
+						"Computer Details =" + phone.getName() + phone.getSupplier() + " " + phone.getStoragesize());
 			}
+			System.out.println("Phone completed");
 
 		} catch (NotValid e) {
 			e.printStackTrace();

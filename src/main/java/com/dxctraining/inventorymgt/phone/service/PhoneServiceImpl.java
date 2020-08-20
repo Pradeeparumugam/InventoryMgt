@@ -12,9 +12,9 @@ import com.dxctraining.inventorymgt.phone.exceptions.NotValid;
 
 @Transactional
 @Service
-public class PhoneServiceImpl {
+public class PhoneServiceImpl implements PhoneService {
 	@Autowired
-	private PhoneDaoImpl phonedaoimpl;
+	private PhoneDao phonedaoimpl;
 
 	public Phone addPhone(Phone phone) {
 		phone = phonedaoimpl.addPhone(phone);
