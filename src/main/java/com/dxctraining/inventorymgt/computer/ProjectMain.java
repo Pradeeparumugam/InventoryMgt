@@ -1,10 +1,9 @@
-package com.dxctraining.inventorymgt.item;
+package com.dxctraining.inventorymgt.computer;
 
 import org.springframework.boot.SpringApplication;
-
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages={"com.dxctraining.inventorymgt.computer"})
 public class ProjectMain {
 
 	public static void main(String[] args) {

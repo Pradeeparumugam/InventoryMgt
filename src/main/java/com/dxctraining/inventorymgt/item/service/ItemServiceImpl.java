@@ -1,5 +1,7 @@
 package com.dxctraining.inventorymgt.item.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,10 @@ public class ItemServiceImpl implements ItemService {
 	public void removeItem(int id) {
 		verify(id);
 		itemdaoimpl.removeItem(id);
+	}
+	public List<Item> displayItem() { 
+	        List<Item> items=itemdaoimpl.displayItem(); 
+	        return items; 
 	}
 
 	public void verify(int id) {
